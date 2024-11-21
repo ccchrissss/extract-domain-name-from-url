@@ -1,33 +1,16 @@
 function domainName(url){
 
-  let startingURL = url
-  let schemeAndSubdomainRemoved = ''
-  let splitURL = ''
+  return url
+    .replace('http://', '')
+    .replace('https://', '')
+    .replace('www.', '')
+    .split('.')[0]
 
-  let replacementTargets = ['http://', 'https://', 'http://www.', 'https://www.', 'www.']
-
-  for (const target of replacementTargets) {
-    // console.log(target)
-
-    if (startingURL.includes(target)) {
-      schemeAndSubdomainRemoved = startingURL.replace(target, '')
-    }
-  }
-
-  // console.log(schemeAndSubdomainRemoved)
-
-  splitURL = schemeAndSubdomainRemoved.split('.')
-
-  // console.log(splitURL)
-
-  let domain = splitURL[0]
-
-  return domain
 }
 
-console.log(domainName('www.microsoft.com/products'))
-console.log(domainName('https://accu-weather.com'))
-console.log(domainName('http://surfline.com'))
+// console.log(domainName('www.microsoft.com/products'))
+// console.log(domainName('https://accu-weather.com'))
+// console.log(domainName('http://surfline.com'))
 
 
 // taking in a string
